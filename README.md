@@ -87,11 +87,15 @@ Add the credentials for accessing AWS in the config and credentials file in the 
 To start the web server, navigate to the root of the application and run the command
 $ python command.py
 
+To view the page
+Enter in the browser (http://127.0.0.1:5000/index)
 
 # Limitations
 There is no progress bar for file upload. There will be available in a future version of the software.
 
 # References
 https://akottr.github.io/dragtable/
+
 https://github.com/isocra/TableDnD/tree/master/js
+
 https://notifyjs.com/
