@@ -1,0 +1,28 @@
+{% block content %}
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{name}}</h3>
+					<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+				</div>
+				<div class="panel-body">
+                    {{ data.to_html(classes="table table-striped") | safe}}
+				</div>
+			</div>
+
+
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Month Summary | {{name}}</h3>
+					<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+				</div>
+				<div class="panel-body">
+                    {{ monthData.to_html(classes="table table-striped") | safe}}
+				</div>
+			</div>
+
+
+{% endblock %}
+
+

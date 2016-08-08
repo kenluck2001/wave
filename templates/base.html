@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Uploads</title>
+
+    <script src="{{ url_for('.static', filename='js/jquery-1.10.0.js') }}"></script>
+
+    <script src="{{ url_for('.static', filename='js/jquery-ui.min.js') }}"></script>
+
+    <script src="{{ url_for('.static', filename='js/bootstrap.js') }}"></script>
+
+    <script src="{{ url_for('.static', filename='js/notify.js') }}"></script>
+
+    <script type="text/javascript" src="{{ url_for('.static', filename='js/jquery.dragtable.js') }}" ></script>
+
+    <script type="text/javascript" src="{{ url_for('.static', filename='js/jquery.tablednd.js') }}" ></script>
+
+    <link href="{{ url_for('.static', filename='css/dragtable-default.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('.static', filename='css/bootstrap.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('.static', filename='css/jquery-ui.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('.static', filename='style/fashion.css') }}" rel="stylesheet">
+
+    <script src="{{ url_for('.static', filename='script/added.js') }}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <h2 class="text-center">CSV File Viewer <img src="{{ url_for('.static', filename='img/logo.jpeg') }}" alt="Smiley face" class="imglogo"> </h2>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+
+        <div class="row bottom-buffer">
+
+            <form action = "{{ url_for('upload_file') }}" method = "POST" enctype = "multipart/form-data">
+                <div class="col-md-5">
+
+                </div>
+                <div class="col-md-2">
+                    <label class="btn btn-default btn-sm btn-file">
+                Browse <input id = "fileBtn" name = "file" type="file" style="display: none;" >
+                    </label>
+
+                    <input name = "submit" class="btn btn-primary btn-sm" type = "submit" value="Upload"/>
+                </div>
+                <div class="col-md-5">
+
+
+                    
+                    {% block message %}
+                        <div class="notification">
+                            <div id="text">No data to display. Kindly upload one or more files in csv format</div>
+                            <div id="type">info</div>
+                        </div>
+                        
+                    {% endblock %}
+
+                </div>
+                
+            </form>
+
+        </div>
+
+        <div class="row">
+            {% block empty %}{% endblock %}
+            {% block content %}{% endblock %}
+        </div>
+    </div> 
+
+    <script type="text/javascript">
+    $(document).ready( function() {
+
+        collapsibleDiv();
+
+        //message type : "success", "info", "warn", "error"
+        //message position: "left", "center" or "right"
+        var message = $( "#text" ).text();
+        var messageType = $( "#type" ).text();
+        $(".notification").notify( message, messageType, { position:"left" } );
+
+        //notify the user to complete the upload
+        $("#fileBtn").click(function(){
+            var message = "Click on Browse Button, then click on Upload Button to complete your action";
+            var messageType = "success";
+            $(".notification").notify( message, messageType, { position:"left" } );
+
+        });
+
+
+        $('table').each(function(){
+	
+		        $(this).dragtable({
+		        placeholder: 'dragtable-col-placeholder test3',
+		        items: 'thead th:not( .notdraggable ):not( :has( .dragtable-drag-handle ) ), .dragtable-drag-handle',
+		        scroll: true
+	        });
+	
+	
+        })
+
+        $('table').tableDnD();
+	
+    });
+
+    </script> 
+  </body>
+</html>

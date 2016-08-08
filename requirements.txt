@@ -1,0 +1,7 @@
+flask
+csvvalidator
+pandas
+sqlalchemy
+md5
+hashlib
+werkzeug

@@ -1,0 +1,52 @@
+
+.panel-heading span {
+    margin-top: -20px;
+    font-size: 15px;
+}
+		
+.row {
+    margin-top: 0px;
+}
+		
+.clickable {
+    cursor: pointer;
+}
+
+.imglogo{
+    width:50px;
+    height:50px;
+}
+
+.drag{
+	background:#CCCCCC !important;
+	color:#cCCCCC;
+}
+
+.dragtable-drag-handle{
+	height:.5em;
+	width: 5px;
+	float: right;
+	background:green;
+}
+
+.tablewrapper{
+	position: relative;
+	overflow: scroll;
+	width: 400px;
+	margin: 3em;
+}
+
+
+/*progress bar*/
+.progress { position:relative; width:400px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
+.bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+.percent { position:absolute; display:inline-block; top:3px; left:48%; }
+
+
+
+.top-buffer { margin-top:5px; }
+.bottom-buffer { margin-bottom:5px; }
+
+#text { display: none;}
+#type { display: none;}
+
